@@ -20,7 +20,7 @@ const CategoryForm = () => {
         setShow(false)
     }
     return ( 
-      show ? <section className="flex flex-col items-start justify-center container p-2 md:w-[35rem] xl:w-[38rem]">
+      show ? <section className="flex flex-col items-start justify-center container p-2 md:w-[35rem] xl:w-[37rem]">
       <h2 className="text-white cursor-pointer ">Add New Category </h2>
        <form onSubmit={submitHandler} className="bg-gray-700 w-full text-gray-400 mt-3 rounded-md p-2">
           <div className="flex flex-col">

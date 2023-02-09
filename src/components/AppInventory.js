@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import CategoryForm from "./categoryForm";
 import ProductForm from "./productForm";
 import {  toast } from 'react-toastify';
+import FilrerProducts from "./filterProdocts";
+import ProductsView from "./productsView";
 
 const AppInventory = () => {
   const {categories}=useSelector(state=>state.categories)
@@ -22,6 +24,8 @@ const AppInventory = () => {
       {showError()}
       <CategoryForm />
       <ProductForm/>
+      <FilrerProducts/>
+      <ProductsView/>
     </div>
   );
 };
