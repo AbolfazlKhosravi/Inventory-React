@@ -38,7 +38,7 @@ const CategoryForm = () => {
       </form>
      </section>:
      <div className="flex flex-col items-start justify-center container p-2 md:w-[35rem] xl:w-[38rem]">
-        <button className="text-white cursor-pointer " onClick={()=>setShow(true)}>Add New Category ?</button>
+        <button className="text-white cursor-pointer " onClick={()=>setShow(true)}>Add New Category ?  click </button>
      </div>
      );
 }

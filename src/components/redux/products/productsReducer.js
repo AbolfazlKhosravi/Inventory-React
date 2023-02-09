@@ -6,6 +6,7 @@ import {
   FETCH_PRODUCTS_FAILER,
   FETCH_PRODUCTS_LODING,
   FETCH_PRODUCTS_SUCCSES,
+  FILTER_PRODUCT
 } from "./ProductsType";
 
 const initialState = {
@@ -35,11 +36,29 @@ const productReducer = (state = initialState, action) => {
         (p) => p.id !== action.productId
       );
       return { ...state, products: filterdProducts };
-      case EDIT_PRODUCT:
-       const index=state.products.findIndex(p=>p.id==action.product.id)
-      const products=[...state.products]
-      products[index]=action.product
+    case EDIT_PRODUCT:
+      const index = state.products.findIndex((p) => p.id == action.product.id);
+      const products = [...state.products];
+      products[index] = action.product;
       return { ...state, products };
+    case FILTER_PRODUCT:
+     const serchFiltered=action.paylaod.products.filter(p=>p.title.toLowerCase().includes(action.paylaod.values.serch.toLowerCase().trim()))
+     const sortFilter=serchFiltered.sort((a,b)=>{
+      // console.log(action.paylaod.values.sort);
+      if(action.paylaod.values.sort==="latest"){
+        return new Date(a.createdAd)> new Date(b.createdAd)?-1:1;
+      }
+      if(action.paylaod.values.sort==="earliest"){
+        return new Date(a.createdAd)> new Date(b.createdAd)?1:-1;
+      }
+    })
+    const categoryFilter=sortFilter.filter(p=>{
+      if(action.paylaod.values.selectCategory===""){
+        return p
+      }
+      return p.selectCategory===action.paylaod.values.selectCategory
+    })
+    return {...state,products:categoryFilter}
     default:
       return state;
   }

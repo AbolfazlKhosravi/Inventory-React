@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_PRODUCT, ADD_PRODUCT_ERROR,FETCH_PRODUCTS_FAILER,FETCH_PRODUCTS_SUCCSES,FETCH_PRODUCTS_LODING,DELETE_PRODUCT, EDIT_PRODUCT } from "./ProductsType";
+import {FILTER_PRODUCT, ADD_PRODUCT, ADD_PRODUCT_ERROR,FETCH_PRODUCTS_FAILER,FETCH_PRODUCTS_SUCCSES,FETCH_PRODUCTS_LODING,DELETE_PRODUCT, EDIT_PRODUCT } from "./ProductsType";
 
 function productsLoding(){
     return{
@@ -42,6 +42,12 @@ function addProductError(payload) {
     error: payload,
   };
 }
+function filterproducts(paylaod){
+  return{
+      type:FILTER_PRODUCT,
+      paylaod:paylaod
+  }
+}
 export const AsyncAddProduct = (product) => {
   return function (dispatch) {
     axios
@@ -72,6 +78,17 @@ export const AsynEditProduct = (product) => {
       .put(`http://localhost:3001/products/${product.id}`,product)
       .then((res) => {
         dispatch(editProduct(res.data));
+      })
+      .catch((error) => {
+      });
+  };
+};
+export const AsynFilterProducts = (values) => {
+  return function (dispatch) {
+    axios
+      .get(`http://localhost:3001/products`)
+      .then((res) => {
+        dispatch(filterproducts({products:res.data,values}));
       })
       .catch((error) => {
       });

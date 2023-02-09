@@ -26,6 +26,7 @@ const ProductsView = () => {
       < >
         <h2 className=" text-white text-lg left-0 relative">Edit Product</h2>{" "}
         <ProductForm show={show} setShow={setShow}/>
+        <div className="mb-10"></div>
       </>
     ) : (
       <section className="mt-4  flex flex-col items-start justify-center container p-2 md:w-[35rem] xl:w-[37rem]">

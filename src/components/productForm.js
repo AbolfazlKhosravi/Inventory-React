@@ -39,9 +39,9 @@ const ProductForm = ({show,setShow}) => {
           </div> 
           <div className="flex flex-col mt-3">
               <select onChange={changeHandler} value={valuse.selectCategory} name="selectCategory" className="cursor-pointer  mt-2 w-full rounded-md p-1 bg-gray-600 ring-1 ring-gray-400  ">
-                <option value="">select a Category</option>
+                <option value="" >select a Category</option>
                  {categories.map((c)=>{
-                    return  <option key={c.id} value={c.id}>{c.title}</option>
+                    return  <option  key={c.id} value={c.id}>{c.title}</option>
                  })}
               </select>
           </div>
