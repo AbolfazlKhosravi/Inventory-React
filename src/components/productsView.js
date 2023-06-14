@@ -13,13 +13,13 @@ const ProductsView = () => {
   }, [dispatch]);
   const findCategory = (id) => {
     if (categories.length) {
-      const category = categories.find((p) => p.id == id);
+      const category = categories.find((p) => parseInt(p.id) === parseInt(id));
       return category.title;
     }
   };
   if (loding) return <div className="text-white  mt-6 "> loding</div>;
   if (error) return <div className="text-red-400 mt-6">{error}</div>;
-  if (products && products.length == 0)
+  if (products && products.length === 0)
     return <div className="text-white mt-6 text-lg">Add a Product</div>;
   if (products)
     return show.show ? (

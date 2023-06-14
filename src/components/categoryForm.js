@@ -11,7 +11,7 @@ const CategoryForm = () => {
     }
     const submitHandler=(e)=>{
         e.preventDefault()
-        if(valuse.title=="" || valuse.description==""){
+        if(valuse.title==="" || valuse.description===""){
            return alert('plese all write')
         }
         const category={...valuse,id:Date.now()}
