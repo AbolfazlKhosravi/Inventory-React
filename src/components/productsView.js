@@ -10,7 +10,7 @@ const ProductsView = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  }, [dispatch]);
   const findCategory = (id) => {
     if (categories.length) {
       const category = categories.find((p) => p.id == id);

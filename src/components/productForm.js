@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AsyncAddProduct,AsynEditProduct } from "./redux/products/ProductsAction";
 
@@ -13,7 +13,7 @@ const ProductForm = ({show,setShow}) => {
     }
     const submitHandler=(e)=>{
         e.preventDefault()
-        if(valuse.title=="" || valuse.quantity==""|| valuse.selectCategory==""){
+        if(valuse.title==="" || valuse.quantity===""|| valuse.selectCategory===""){
            return alert('plese all write')
         }
         const product={...valuse,createdAd:new Date().toISOString()}

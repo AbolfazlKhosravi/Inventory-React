@@ -7,9 +7,12 @@ const FilrerProducts = () => {
    const [values,setValues]=useState({serch:"",sort:"latest",selectCategory:""})
    const {products}=useSelector(state=>state.products)
    const dispatch =useDispatch()
+   const dataLength = products ? products.length : 0;
+
     useEffect(()=>{
       dispatch(AsynFilterProducts(values))
-    },[products&&products.length])
+    },[dataLength,dispatch,values])
+
    const changeHandler=({target:{value,name}})=>{
       setValues({...values,[name]:value})
       dispatch(AsynFilterProducts({...values,[name]:value}))
