@@ -51,7 +51,7 @@ function filterproducts(paylaod){
 export const AsyncAddProduct = (product) => {
   return function (dispatch) {
     axios
-      .post("http://localhost:3001/products", product)
+      .post("https://khosravi-react-inventory.glitch.me/products", product)
       .then((res) => {
         dispatch(addProduct(res.data));
       })
@@ -63,7 +63,7 @@ export const AsyncAddProduct = (product) => {
 export const AsynDeleteProduct = (id) => {
   return function (dispatch) {
     axios
-      .delete(`http://localhost:3001/products/${id}`)
+      .delete(`https://khosravi-react-inventory.glitch.me/products/${id}`)
       .then((res) => {
         dispatch(deleteProduct(id));
       })
@@ -75,7 +75,7 @@ export const AsynDeleteProduct = (id) => {
 export const AsynEditProduct = (product) => {
   return function (dispatch) {
     axios
-      .put(`http://localhost:3001/products/${product.id}`,product)
+      .put(`https://khosravi-react-inventory.glitch.me/products/${product.id}`,product)
       .then((res) => {
         dispatch(editProduct(res.data));
       })
@@ -86,7 +86,7 @@ export const AsynEditProduct = (product) => {
 export const AsynFilterProducts = (values) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/products`)
+      .get(`https://khosravi-react-inventory.glitch.me/products`)
       .then((res) => {
         dispatch(filterproducts({products:res.data,values}));
       })
@@ -97,7 +97,7 @@ export const AsynFilterProducts = (values) => {
 const fetchProducts=()=>{
   return function(dispatch){
       dispatch(productsLoding());
-      axios.get("http://localhost:3001/products").then((res)=>{
+      axios.get("https://khosravi-react-inventory.glitch.me/products").then((res)=>{
        dispatch(productsSucces(res.data))
       }).catch((error)=>{
        dispatch(productsFiller(error.message))
